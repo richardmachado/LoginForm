@@ -3,33 +3,48 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
+import "./login.css";
+import loginImg from "../../login.jpg";
+
 function LoginForm({ values, errors, touched, isSubmitting }) {
   return (
-  <div>
+  
+
+    <div className="base-container">
+      
+     <div className="header">Login</div>
+        <img src ={loginImg} alt="blimp"/>
+      
+    
     <Form>
-        <div>
-            <h1>Login</h1>
-        </div>
-      <div>
+  
+    
+          <div className="form">
+      <div className="form-group">
+      <label htmlFor="email">Email </label>
         {touched.email && errors.email && <p>{errors.email}</p>}
         <Field type="email" name="email" placeholder="Email" />
       </div>
-      <div>
+      <div className="form-group">
+      <label htmlFor="password">Password </label>
         {touched.password && errors.password && <p>{errors.password}</p>}
         <Field type="password" name="password" placeholder="Password" />
+ 
       </div>
-      <label>
-        <Field type="checkbox" name="tos" checked={values.tos} />
-       Save Password
-      </label>
-      <Field component="select" name="meal">
-        <option value="gold">Gold</option>
-        <option value="silver">Silver</option>
-        <option value="platinum">Platinum</option>
-      </Field>
-      <button disabled={isSubmitting}>Submit</button>
-    </Form>
+      </div>
+      
+      </Form>
+
+      <div className="footer">
+          <button type="button" className="btn">
+            Submit
+      {/* <button disabled={isSubmitting}>Submit</button> */}
+      </button>
+        </div>
+
+  
     </div>
+    
   );
 }
 
