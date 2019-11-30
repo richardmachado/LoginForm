@@ -14,7 +14,7 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
 
     <div className="base-container">
       
-     <div className="header">Login</div>
+     <div className="header">Register</div>
         <img src ={loginImg} alt="construction"/>
       
     
@@ -26,11 +26,24 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
       <label htmlFor="email">Email </label>
         {touched.email && errors.email && <p>{errors.email}</p>}
         <Field type="email" name="email" placeholder="Email" />
-     
-      <label htmlFor="password">Password </label>
-        {touched.password && errors.password && <p>{errors.password}</p>}
-        <Field type="password" name="password" placeholder="Password" />
-   
+  
+
+        <label htmlFor="password">Password </label>
+            {touched.password && errors.password && <p>{errors.password}</p>}
+            <Field type="text" name="password" placeholder="Password" />
+
+        <label htmlFor="bestfriend">Best Friend </label>
+            {touched.bestfriend && errors.bestfriend && <p>{errors.bestfriend}</p>}
+            <Field type="text" name="bestfriend" placeholder="Best Friend" />
+
+        <label htmlFor="state">State</label> 
+            <select id="state_select" >
+                <option value="0">Select State</option>  
+                <option value="1"> CA </option>
+                <option value="2"> CO </option>
+                <option value="3"> TX </option>
+            </select>
+
       </div>
       </div>
       
@@ -49,13 +62,13 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
   );
 }
 
-const FormikLoginForm = withFormik({
+const Register = withFormik({
   mapPropsToValues({ email, password }) {
     return {
       email: email || "",
       password: password || "",
-
-    
+      bestfriend: Text || "",
+      state: Text || "",
      
     };
   },
@@ -64,9 +77,11 @@ const FormikLoginForm = withFormik({
       .email("Email not valid")
       .required("Email is required"),
     password: Yup.string()
-      .min(10, "Password must be 10 characters or longer")
+      .min(6, "Password must be 6 characters or longer")
       .required("Password is required"),
-   
+    bestfriend: Yup.string()
+      .min(3, "Friend must be more than 3 characters" )
+      .required("Best friend is required")
      
   }),
   
@@ -89,4 +104,4 @@ const FormikLoginForm = withFormik({
   }
 })(LoginForm);
 
-export default FormikLoginForm;
+export default Register;

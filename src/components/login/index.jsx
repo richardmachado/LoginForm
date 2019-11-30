@@ -1,4 +1,4 @@
 
 
 export {FormikLoginForm} from './components/login/LoginYup';
-export { Register } from "./register";
+export { Register } from "./registerYup";

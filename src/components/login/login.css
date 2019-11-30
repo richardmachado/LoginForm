@@ -33,9 +33,10 @@ input {
 }
 
 .image {
-    width: 21em;
-    img {
-      width: 10%;
-      height: 10%;
-  }
+    width: 2em;
+   
+}
+img {
+    width: 50% !important;
+    height: 50% !important;
 }

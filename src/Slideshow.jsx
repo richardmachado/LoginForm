@@ -3,7 +3,7 @@ import React from "react";
 import "./Slideshow.scss";
 // import {  FormikLoginForm, Register } from "./components/login/index";
 import FormikLoginForm from "./components/login/LoginYup"
-import Register from "./components/login/register"
+import Register from "./components/login/RegisterYup"
 class Slideshow extends React.Component {
   constructor(props) {
     super(props);
